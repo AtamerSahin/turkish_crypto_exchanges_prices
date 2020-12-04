@@ -1,14 +1,15 @@
 import 'package:http/http.dart' as http;
+import 'package:turkish_crypto_exchanges_prices/models/binance.dart';
 import 'dart:convert';
-import 'package:turkish_crypto_exchanges_prices/models/thodex.dart';
 
-class ThodexApiClient {
+class BinanceApiClient {
   final http.Client httpClient = http.Client();
 
-  Future<List<Thodex>> getPrices() async {
+  Future<List<Binance>> getPrices() async {
     //List<Btcturk> olarakta yapabilirdik ancak apide data: 1 adet geliyor o yüzden list değil; data:(datum) nın içinde gelenler List.
-    final List<Thodex> _allPrices = List<Thodex>();
-    final response = await httpClient.get("http://ticker.thodex.com/");
+    final List<Binance> _allPrices = List<Binance>();
+    final response =
+        await httpClient.get("https://api.binance.com/api/v1/ticker/allPrices");
     print("Client yapıldı");
     if (response.statusCode != 200) {
       throw Exception("Hata Alındı");
@@ -20,8 +21,8 @@ class ThodexApiClient {
     /*_thodex = Thodex.fromMap(responseJSON);
     print("_thodexe mapten eklendi: " + _thodex.toString());*/
 
-    for (int i = 0; i < 41; i++) {
-      _allPrices.add(Thodex.fromMap(responseJSON[i]));
+    for (int i = 0; i < 10; i++) {
+      _allPrices.add(Binance.fromMap(responseJSON[i]));
     }
     print("_allPrices liste eklendi: " + _allPrices.toString());
 

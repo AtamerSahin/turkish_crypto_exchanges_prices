@@ -87,33 +87,77 @@ class _ParibuBodyState extends State<ParibuBody> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceEvenly,
                                         children: [
-                                          Text(
-                                            "Average: " +
-                                                _paribuViewModel
-                                                    .paribu[index].avg24Hr
-                                                    .toString(),
-                                            style: TextStyle(fontSize: 15),
+                                          RichText(
+                                            text: TextSpan(
+                                                text: "Average: ",
+                                                style:
+                                                    DefaultTextStyle.of(context)
+                                                        .style,
+                                                children: <TextSpan>[
+                                                  TextSpan(
+                                                    text: _paribuViewModel
+                                                        .paribu[index].avg24Hr
+                                                        .toString(),
+                                                    style: TextStyle(
+                                                        fontSize: 15,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                ]),
                                           ),
-                                          Text(
-                                            "High: " +
-                                                _paribuViewModel
-                                                    .paribu[index].high24Hr
-                                                    .toString(),
-                                            style: TextStyle(fontSize: 15),
+                                          RichText(
+                                            text: TextSpan(
+                                                text: "High: ",
+                                                style:
+                                                    DefaultTextStyle.of(context)
+                                                        .style,
+                                                children: <TextSpan>[
+                                                  TextSpan(
+                                                    text: _paribuViewModel
+                                                        .paribu[index].high24Hr
+                                                        .toString(),
+                                                    style: TextStyle(
+                                                        fontSize: 15,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                ]),
                                           ),
-                                          Text(
-                                            "Low: " +
-                                                _paribuViewModel
-                                                    .paribu[index].low24Hr
-                                                    .toString(),
-                                            style: TextStyle(fontSize: 15),
+                                          RichText(
+                                            text: TextSpan(
+                                                text: "Low: ",
+                                                style:
+                                                    DefaultTextStyle.of(context)
+                                                        .style,
+                                                children: <TextSpan>[
+                                                  TextSpan(
+                                                    text: _paribuViewModel
+                                                        .paribu[index].low24Hr
+                                                        .toString(),
+                                                    style: TextStyle(
+                                                        fontSize: 15,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                ]),
                                           ),
-                                          Text(
-                                            "Last: " +
-                                                _paribuViewModel
-                                                    .paribu[index].last
-                                                    .toString(),
-                                            style: TextStyle(fontSize: 15),
+                                          RichText(
+                                            text: TextSpan(
+                                                text: "Last: ",
+                                                style:
+                                                    DefaultTextStyle.of(context)
+                                                        .style,
+                                                children: <TextSpan>[
+                                                  TextSpan(
+                                                    text: _paribuViewModel
+                                                        .paribu[index].last
+                                                        .toString(),
+                                                    style: TextStyle(
+                                                        fontSize: 15,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                ]),
                                           ),
                                         ],
                                       ),

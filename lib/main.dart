@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:turkish_crypto_exchanges_prices/modelview/btcturk_view_model.dart';
-
 import 'locator.dart';
+import 'modelview/binance_view_model.dart';
 import 'modelview/paribu_view_model.dart';
 import 'modelview/thodex_view_model.dart';
 import 'widgets/homepage.dart';
@@ -24,6 +24,10 @@ void main() {
       //This layer for paribu
       create: (context) => ParibuViewModel(),
     ),
+    ChangeNotifierProvider<BinanceViewModel>(
+      //This layer for binance
+      create: (context) => BinanceViewModel(),
+    ),
   ], child: MyApp()));
 }
 
@@ -33,7 +37,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Turkish Crypto Prices',
       theme: ThemeData(
         primarySwatch: Colors.grey,
         visualDensity: VisualDensity.adaptivePlatformDensity,

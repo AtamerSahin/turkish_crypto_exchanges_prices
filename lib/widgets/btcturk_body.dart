@@ -58,7 +58,8 @@ class _BtcturkBodyState extends State<BtcturkBody> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Container(
-                                      width: 130,
+                                      alignment: Alignment.centerLeft,
+                                      width: 150,
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
@@ -67,16 +68,21 @@ class _BtcturkBodyState extends State<BtcturkBody> {
                                             width: 10,
                                           ),
                                           CircleAvatar(
-                                              backgroundImage: NetworkImage(
-                                                  "https://www.coinzo.com/static/coins/btc.png")),
+                                              backgroundImage: AssetImage(
+                                                  "assets/${_btcturkViewModel.btcturk.data[index].numeratorSymbol}.png")),
                                           SizedBox(
                                             width: 10,
                                           ),
-                                          Text(
-                                              _btcturkViewModel
-                                                  .btcturk.data[index].pair
-                                                  .toString(),
-                                              style: TextStyle(fontSize: 15.0)),
+                                          Container(
+                                            width: 80,
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(
+                                                _btcturkViewModel
+                                                    .btcturk.data[index].pair
+                                                    .toString(),
+                                                style:
+                                                    TextStyle(fontSize: 15.0)),
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -88,33 +94,86 @@ class _BtcturkBodyState extends State<BtcturkBody> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceEvenly,
                                         children: [
-                                          Text(
-                                            "Average: " +
-                                                _btcturkViewModel
-                                                    .btcturk.data[index].average
-                                                    .toString(),
-                                            style: TextStyle(fontSize: 15),
+                                          RichText(
+                                            text: TextSpan(
+                                                text: "Average: ",
+                                                style:
+                                                    DefaultTextStyle.of(context)
+                                                        .style,
+                                                children: <TextSpan>[
+                                                  TextSpan(
+                                                    text: double.parse(
+                                                            _btcturkViewModel
+                                                                .btcturk
+                                                                .data[index]
+                                                                .average
+                                                                .toStringAsFixed(
+                                                                    2))
+                                                        .toStringAsFixed(2),
+                                                    style: TextStyle(
+                                                        fontSize: 15,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                ]),
                                           ),
-                                          Text(
-                                            "High: " +
-                                                _btcturkViewModel
-                                                    .btcturk.data[index].high
-                                                    .toString(),
-                                            style: TextStyle(fontSize: 15),
+                                          RichText(
+                                            text: TextSpan(
+                                                text: "High: ",
+                                                style:
+                                                    DefaultTextStyle.of(context)
+                                                        .style,
+                                                children: <TextSpan>[
+                                                  TextSpan(
+                                                    text: _btcturkViewModel
+                                                        .btcturk
+                                                        .data[index]
+                                                        .high
+                                                        .toString(),
+                                                    style: TextStyle(
+                                                        fontSize: 15,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                ]),
                                           ),
-                                          Text(
-                                            "Low: " +
-                                                _btcturkViewModel
-                                                    .btcturk.data[index].low
-                                                    .toString(),
-                                            style: TextStyle(fontSize: 15),
+                                          RichText(
+                                            text: TextSpan(
+                                                text: "Low: ",
+                                                style:
+                                                    DefaultTextStyle.of(context)
+                                                        .style,
+                                                children: <TextSpan>[
+                                                  TextSpan(
+                                                    text: _btcturkViewModel
+                                                        .btcturk.data[index].low
+                                                        .toString(),
+                                                    style: TextStyle(
+                                                        fontSize: 15,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                ]),
                                           ),
-                                          Text(
-                                            "Last: " +
-                                                _btcturkViewModel
-                                                    .btcturk.data[index].last
-                                                    .toString(),
-                                            style: TextStyle(fontSize: 15),
+                                          RichText(
+                                            text: TextSpan(
+                                                text: "Last: ",
+                                                style:
+                                                    DefaultTextStyle.of(context)
+                                                        .style,
+                                                children: <TextSpan>[
+                                                  TextSpan(
+                                                    text: _btcturkViewModel
+                                                        .btcturk
+                                                        .data[index]
+                                                        .last
+                                                        .toString(),
+                                                    style: TextStyle(
+                                                        fontSize: 15,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                ]),
                                           ),
                                         ],
                                       ),
@@ -148,7 +207,7 @@ class _BtcturkBodyState extends State<BtcturkBody> {
                         ? veriGeliyor()
                         : (_btcturkViewModel.state == BtcturkState.ErrorState)
                             ? hataGeldi()
-                            : hata()),
+                            : getPricesInitially()),
           ),
         ],
       ),
@@ -163,7 +222,12 @@ class _BtcturkBodyState extends State<BtcturkBody> {
     return Center(child: Text("hata"));
   }
 
-  hata() {
-    return Center(child: Text("Verileri Almak için TabBar'a Dokunun"));
+  getPricesInitially() {
+    //To get prices initially, we triggered our function
+    //Tried this but found a better option. then we call the function in the constructor
+    /*BtcturkViewModel _btcturkViewModel;
+    _btcturkViewModel = Provider.of<BtcturkViewModel>(context);
+    _btcturkViewModel.getPricesViewModel();*/
+    return Center(child: Text("Verileri Getirmek İçin Tabbar'a Dokunun.."));
   }
 }

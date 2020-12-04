@@ -4,7 +4,9 @@ import 'package:turkish_crypto_exchanges_prices/data/thodex.client.dart';
 import 'package:turkish_crypto_exchanges_prices/modelview/btcturk_view_model.dart';
 import 'package:turkish_crypto_exchanges_prices/modelview/thodex_view_model.dart';
 
+import 'data/binance_client.dart';
 import 'data/paribu_client.dart';
+import 'modelview/binance_view_model.dart';
 import 'modelview/paribu_view_model.dart';
 
 GetIt locator = GetIt.instance;
@@ -15,4 +17,6 @@ void setupLocator() {
   locator.registerLazySingleton(() => ThodexViewModel());
   locator.registerLazySingleton(() => ParibuApiClient());
   locator.registerLazySingleton(() => ParibuViewModel());
+  locator.registerLazySingleton(() => BinanceApiClient());
+  locator.registerLazySingleton(() => BinanceViewModel());
 }

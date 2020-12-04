@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:turkish_crypto_exchanges_prices/modelview/binance_view_model.dart';
 import 'package:turkish_crypto_exchanges_prices/modelview/btcturk_view_model.dart';
 import 'package:turkish_crypto_exchanges_prices/modelview/paribu_view_model.dart';
 import 'package:turkish_crypto_exchanges_prices/modelview/thodex_view_model.dart';
+import 'package:turkish_crypto_exchanges_prices/widgets/binance_body.dart';
 import 'package:turkish_crypto_exchanges_prices/widgets/btcturk_body.dart';
 import 'package:turkish_crypto_exchanges_prices/widgets/paribu_body.dart';
 import 'package:turkish_crypto_exchanges_prices/widgets/thodex_body.dart';
@@ -17,13 +19,14 @@ class _HomePageState extends State<HomePage>
   BtcturkViewModel _btcturkViewModel;
   ThodexViewModel _thodexViewModel;
   ParibuViewModel _paribuViewModel;
+  BinanceViewModel _binanceViewModel;
   TabController tabController;
   bool appMode = false;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    tabController = TabController(length: 3, vsync: this);
+    tabController = TabController(length: 4, vsync: this);
   }
 
   @override
@@ -31,7 +34,7 @@ class _HomePageState extends State<HomePage>
     _btcturkViewModel = Provider.of<BtcturkViewModel>(context);
     _thodexViewModel = Provider.of<ThodexViewModel>(context);
     _paribuViewModel = Provider.of<ParibuViewModel>(context);
-
+    _binanceViewModel = Provider.of<BinanceViewModel>(context);
     return Theme(
       data: appMode == false
           ? ThemeData(
@@ -74,7 +77,7 @@ class _HomePageState extends State<HomePage>
                           TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     )),
                     Container(
-                      width: MediaQuery.of(context).size.width / 2,
+                      width: MediaQuery.of(context).size.width * 3 / 5,
                       child: TabBar(
                           onTap: (int a) {
                             //Current index
@@ -86,6 +89,9 @@ class _HomePageState extends State<HomePage>
                             }
                             if (a == 2) {
                               _paribuViewModel.getPricesViewModel();
+                            }
+                            if (a == 3) {
+                              _binanceViewModel.getPricesViewModel();
                             } else {}
                           },
                           controller: tabController,
@@ -93,6 +99,7 @@ class _HomePageState extends State<HomePage>
                             Tab(child: Text("BtcTurk")),
                             Tab(child: Text("Thodex")),
                             Tab(child: Text("Paribu")),
+                            Tab(child: Text("Binance")),
                           ]),
                     ),
                   ],
@@ -104,15 +111,8 @@ class _HomePageState extends State<HomePage>
             BtcturkBody(),
             ThodexBody(),
             ParibuBody(),
+            BinanceBody(),
           ])),
     );
-  }
-
-  veriGeliyor() {
-    return Center(child: CircularProgressIndicator());
-  }
-
-  hataGeldi() {
-    return Center(child: Text("hata"));
   }
 }

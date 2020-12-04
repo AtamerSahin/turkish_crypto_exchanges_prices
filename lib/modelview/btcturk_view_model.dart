@@ -14,6 +14,7 @@ class BtcturkViewModel with ChangeNotifier {
   //Cons
   BtcturkViewModel() {
     _state = BtcturkState.InitialState;
+    getPricesViewModel();
   }
   //Set-Get
   BtcturkState get state => _state;
@@ -27,6 +28,7 @@ class BtcturkViewModel with ChangeNotifier {
 
   //GetPRices Function
   Future<Btcturk> getPricesViewModel() async {
+    print("btcturk getPrice tetiklendi");
     try {
       state = BtcturkState.LoadingState;
       _btcturk = await _btcTurkApiClient.getPrices();

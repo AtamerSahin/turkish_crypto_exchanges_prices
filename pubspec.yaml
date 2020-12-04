@@ -71,6 +71,13 @@ flutter:
     - assets/XEM.png
     - assets/XMR.png
     - assets/ZEC.png
+    - assets/ATOM.png
+    - assets/BCC.png
+    - assets/BNB.png
+    - assets/BNT.png
+    - assets/GAS.png
+    - assets/QTU.png
+    - assets/SNT.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
