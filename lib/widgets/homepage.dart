@@ -71,13 +71,15 @@ class _HomePageState extends State<HomePage>
                       width: 13,
                     ),
                     Expanded(
-                        child: Text(
-                      "Crypto Prices App",
-                      style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                        child: Container(
+                      width: MediaQuery.of(context).size.width * 1 / 5,
+                      child: Text(
+                        "Crypto App",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
                     )),
                     Container(
-                      width: MediaQuery.of(context).size.width * 3 / 5,
+                      width: MediaQuery.of(context).size.width * 4 / 5,
                       child: TabBar(
                           onTap: (int a) {
                             //Current index
@@ -96,10 +98,20 @@ class _HomePageState extends State<HomePage>
                           },
                           controller: tabController,
                           tabs: [
-                            Tab(child: Text("BtcTurk")),
-                            Tab(child: Text("ThodeX")),
-                            Tab(child: Text("Paribu")),
-                            Tab(child: Text("Binance")),
+                            Tab(
+                                child: Text("BtcTurk",
+                                    style: TextStyle(fontSize: 12))),
+                            Tab(
+                                child: Text("Thodex",
+                                    style: TextStyle(fontSize: 12))),
+                            Tab(
+                                child: Text("Paribu",
+                                    style: TextStyle(fontSize: 12))),
+                            Tab(
+                                child: Text(
+                              "Binance",
+                              style: TextStyle(fontSize: 12),
+                            )),
                           ]),
                     ),
                   ],
