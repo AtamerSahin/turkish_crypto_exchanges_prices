@@ -57,146 +57,171 @@ class _BtcturkBodyState extends State<BtcturkBody> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Container(
-                                      alignment: Alignment.centerLeft,
-                                      width: 150,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          SizedBox(
-                                            width: 10,
-                                          ),
-                                          CircleAvatar(
-                                              backgroundImage: AssetImage(
-                                                  "assets/${_btcturkViewModel.btcturk.data[index].numeratorSymbol}.png")),
-                                          SizedBox(
-                                            width: 10,
-                                          ),
-                                          Container(
-                                            width: 80,
-                                            alignment: Alignment.centerLeft,
-                                            child: Text(
-                                                _btcturkViewModel
-                                                    .btcturk.data[index].pair
-                                                    .toString(),
-                                                style:
-                                                    TextStyle(fontSize: 15.0)),
-                                          ),
-                                        ],
+                                    Expanded(
+                                      child: Container(
+                                        alignment: Alignment.centerLeft,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                2 /
+                                                5,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                left: 8.0,
+                                              ),
+                                              child: Container(
+                                                child: CircleAvatar(
+                                                    backgroundImage: AssetImage(
+                                                        "assets/${_btcturkViewModel.btcturk.data[index].numeratorSymbol}.png")),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Expanded(
+                                              child: Container(
+                                                width: 80,
+                                                alignment: Alignment.centerLeft,
+                                                child: Text(
+                                                    _btcturkViewModel.btcturk
+                                                        .data[index].pair
+                                                        .toString(),
+                                                    style: TextStyle(
+                                                        fontSize: 15.0)),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                    Container(
-                                      width: 190,
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          RichText(
-                                            text: TextSpan(
-                                                text: "Average: ",
-                                                style:
-                                                    DefaultTextStyle.of(context)
-                                                        .style,
-                                                children: <TextSpan>[
-                                                  TextSpan(
-                                                    text: double.parse(
-                                                            _btcturkViewModel
-                                                                .btcturk
-                                                                .data[index]
-                                                                .average
-                                                                .toStringAsFixed(
-                                                                    2))
-                                                        .toStringAsFixed(2),
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                ]),
-                                          ),
-                                          RichText(
-                                            text: TextSpan(
-                                                text: "High: ",
-                                                style:
-                                                    DefaultTextStyle.of(context)
-                                                        .style,
-                                                children: <TextSpan>[
-                                                  TextSpan(
-                                                    text: _btcturkViewModel
-                                                        .btcturk
-                                                        .data[index]
-                                                        .high
-                                                        .toString(),
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                ]),
-                                          ),
-                                          RichText(
-                                            text: TextSpan(
-                                                text: "Low: ",
-                                                style:
-                                                    DefaultTextStyle.of(context)
-                                                        .style,
-                                                children: <TextSpan>[
-                                                  TextSpan(
-                                                    text: _btcturkViewModel
-                                                        .btcturk.data[index].low
-                                                        .toString(),
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                ]),
-                                          ),
-                                          RichText(
-                                            text: TextSpan(
-                                                text: "Last: ",
-                                                style:
-                                                    DefaultTextStyle.of(context)
-                                                        .style,
-                                                children: <TextSpan>[
-                                                  TextSpan(
-                                                    text: _btcturkViewModel
-                                                        .btcturk
-                                                        .data[index]
-                                                        .last
-                                                        .toString(),
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                ]),
-                                          ),
-                                        ],
+                                    Expanded(
+                                      child: Container(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                2 /
+                                                5,
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            RichText(
+                                              text: TextSpan(
+                                                  text: "Average: ",
+                                                  style: DefaultTextStyle.of(
+                                                          context)
+                                                      .style,
+                                                  children: <TextSpan>[
+                                                    TextSpan(
+                                                      text: double.parse(
+                                                              _btcturkViewModel
+                                                                  .btcturk
+                                                                  .data[index]
+                                                                  .average
+                                                                  .toStringAsFixed(
+                                                                      2))
+                                                          .toStringAsFixed(2),
+                                                      style: TextStyle(
+                                                          fontSize: 15,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ]),
+                                            ),
+                                            RichText(
+                                              text: TextSpan(
+                                                  text: "High: ",
+                                                  style: DefaultTextStyle.of(
+                                                          context)
+                                                      .style,
+                                                  children: <TextSpan>[
+                                                    TextSpan(
+                                                      text: _btcturkViewModel
+                                                          .btcturk
+                                                          .data[index]
+                                                          .high
+                                                          .toString(),
+                                                      style: TextStyle(
+                                                          fontSize: 15,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ]),
+                                            ),
+                                            RichText(
+                                              text: TextSpan(
+                                                  text: "Low: ",
+                                                  style: DefaultTextStyle.of(
+                                                          context)
+                                                      .style,
+                                                  children: <TextSpan>[
+                                                    TextSpan(
+                                                      text: _btcturkViewModel
+                                                          .btcturk
+                                                          .data[index]
+                                                          .low
+                                                          .toString(),
+                                                      style: TextStyle(
+                                                          fontSize: 15,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ]),
+                                            ),
+                                            RichText(
+                                              text: TextSpan(
+                                                  text: "Last: ",
+                                                  style: DefaultTextStyle.of(
+                                                          context)
+                                                      .style,
+                                                  children: <TextSpan>[
+                                                    TextSpan(
+                                                      text: _btcturkViewModel
+                                                          .btcturk
+                                                          .data[index]
+                                                          .last
+                                                          .toString(),
+                                                      style: TextStyle(
+                                                          fontSize: 15,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ]),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                    Container(
-                                      alignment: Alignment.centerRight,
-                                      width: 70,
-                                      child: Text(
-                                        _btcturkViewModel.btcturk.data[index]
-                                                .dailyPercent
-                                                .toString() +
-                                            "%",
-                                        style: TextStyle(
-                                            color: double.parse(
-                                                        _btcturkViewModel
-                                                            .btcturk
-                                                            .data[index]
-                                                            .dailyPercent
-                                                            .toString()) <=
-                                                    0
-                                                ? Colors.red.shade400
-                                                : Colors.green.shade400,
-                                            fontSize: 18),
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(right: 8.0),
+                                      child: Container(
+                                        alignment: Alignment.centerRight,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.7 /
+                                                3,
+                                        child: Text(
+                                          _btcturkViewModel.btcturk.data[index]
+                                                  .dailyPercent
+                                                  .toString() +
+                                              "%",
+                                          style: TextStyle(
+                                              color: double.parse(
+                                                          _btcturkViewModel
+                                                              .btcturk
+                                                              .data[index]
+                                                              .dailyPercent
+                                                              .toString()) <=
+                                                      0
+                                                  ? Colors.red.shade400
+                                                  : Colors.green.shade400,
+                                              fontSize: 18),
+                                        ),
                                       ),
                                     ),
                                   ],

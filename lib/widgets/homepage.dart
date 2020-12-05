@@ -97,7 +97,7 @@ class _HomePageState extends State<HomePage>
                           controller: tabController,
                           tabs: [
                             Tab(child: Text("BtcTurk")),
-                            Tab(child: Text("Thodex")),
+                            Tab(child: Text("ThodeX")),
                             Tab(child: Text("Paribu")),
                             Tab(child: Text("Binance")),
                           ]),

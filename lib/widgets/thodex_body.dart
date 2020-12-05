@@ -37,7 +37,7 @@ class _ThodexBodyState extends State<ThodexBody> {
                     Text("Emirler/Hacim",
                         style: TextStyle(color: Colors.grey.shade400)),
                     SizedBox(
-                      width: 13,
+                      width: 28,
                     ),
                   ]),
             ),
@@ -57,125 +57,139 @@ class _ThodexBodyState extends State<ThodexBody> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Container(
-                                      alignment: Alignment.centerLeft,
-                                      width: MediaQuery.of(context).size.width *
-                                          1 /
-                                          3,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: CircleAvatar(
-                                                backgroundImage: AssetImage(
-                                                    "assets/${_thodexViewModel.thodex[index].stock}.png")),
-                                          ),
-                                          Container(
-                                            width: 140,
-                                            alignment: Alignment.centerLeft,
-                                            child: Text(
-                                                _thodexViewModel
-                                                    .thodex[index].market
-                                                    .toString(),
-                                                style:
-                                                    TextStyle(fontSize: 15.0)),
-                                          ),
-                                        ],
+                                    Expanded(
+                                      child: Container(
+                                        alignment: Alignment.centerLeft,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.40 /
+                                                3,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 8.0),
+                                              child: Container(
+                                                child: CircleAvatar(
+                                                    backgroundImage: AssetImage(
+                                                        "assets/${_thodexViewModel.thodex[index].stock}.png")),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Expanded(
+                                              child: Container(
+                                                width: 80,
+                                                alignment: Alignment.centerLeft,
+                                                child: Text(
+                                                    _thodexViewModel
+                                                        .thodex[index].market
+                                                        .toString(),
+                                                    style: TextStyle(
+                                                        fontSize: 15.0)),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: Container(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                1.40 /
+                                                3,
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            RichText(
+                                              text: TextSpan(
+                                                  text: "Deal: ",
+                                                  style: DefaultTextStyle.of(
+                                                          context)
+                                                      .style,
+                                                  children: <TextSpan>[
+                                                    TextSpan(
+                                                      text: double.parse(
+                                                              _thodexViewModel
+                                                                  .thodex[index]
+                                                                  .deal)
+                                                          .toStringAsFixed(2),
+                                                      style: TextStyle(
+                                                          fontSize: 15,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ]),
+                                            ),
+                                            RichText(
+                                              text: TextSpan(
+                                                  text: "High: ",
+                                                  style: DefaultTextStyle.of(
+                                                          context)
+                                                      .style,
+                                                  children: <TextSpan>[
+                                                    TextSpan(
+                                                      text: _thodexViewModel
+                                                          .thodex[index].high
+                                                          .toString(),
+                                                      style: TextStyle(
+                                                          fontSize: 15,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ]),
+                                            ),
+                                            RichText(
+                                              text: TextSpan(
+                                                  text: "Low: ",
+                                                  style: DefaultTextStyle.of(
+                                                          context)
+                                                      .style,
+                                                  children: <TextSpan>[
+                                                    TextSpan(
+                                                      text: _thodexViewModel
+                                                          .thodex[index].low
+                                                          .toString(),
+                                                      style: TextStyle(
+                                                          fontSize: 15,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ]),
+                                            ),
+                                            RichText(
+                                              text: TextSpan(
+                                                  text: "Last: ",
+                                                  style: DefaultTextStyle.of(
+                                                          context)
+                                                      .style,
+                                                  children: <TextSpan>[
+                                                    TextSpan(
+                                                      text: _thodexViewModel
+                                                          .thodex[index].last
+                                                          .toString(),
+                                                      style: TextStyle(
+                                                          fontSize: 15,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ]),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                     Container(
                                       width: MediaQuery.of(context).size.width *
-                                          1 /
+                                          0.90 /
                                           3,
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          RichText(
-                                            text: TextSpan(
-                                                text: "Deal: ",
-                                                style:
-                                                    DefaultTextStyle.of(context)
-                                                        .style,
-                                                children: <TextSpan>[
-                                                  TextSpan(
-                                                    text: double.parse(
-                                                            _thodexViewModel
-                                                                .thodex[index]
-                                                                .deal)
-                                                        .toStringAsFixed(2),
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                ]),
-                                          ),
-                                          RichText(
-                                            text: TextSpan(
-                                                text: "High: ",
-                                                style:
-                                                    DefaultTextStyle.of(context)
-                                                        .style,
-                                                children: <TextSpan>[
-                                                  TextSpan(
-                                                    text: _thodexViewModel
-                                                        .thodex[index].high
-                                                        .toString(),
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                ]),
-                                          ),
-                                          RichText(
-                                            text: TextSpan(
-                                                text: "Low: ",
-                                                style:
-                                                    DefaultTextStyle.of(context)
-                                                        .style,
-                                                children: <TextSpan>[
-                                                  TextSpan(
-                                                    text: _thodexViewModel
-                                                        .thodex[index].low
-                                                        .toString(),
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                ]),
-                                          ),
-                                          RichText(
-                                            text: TextSpan(
-                                                text: "Last: ",
-                                                style:
-                                                    DefaultTextStyle.of(context)
-                                                        .style,
-                                                children: <TextSpan>[
-                                                  TextSpan(
-                                                    text: _thodexViewModel
-                                                        .thodex[index].last
-                                                        .toString(),
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                ]),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          1 /
-                                          4,
                                       alignment: Alignment.centerLeft,
                                       child: Column(
                                         crossAxisAlignment:

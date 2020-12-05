@@ -19,7 +19,6 @@ class _BinanceBodyState extends State<BinanceBody> {
               height: 40,
               //width: 30,
               child: Container(
-                width: MediaQuery.of(context).size.width,
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -73,7 +72,8 @@ class _BinanceBodyState extends State<BinanceBody> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Padding(
-                                            padding: const EdgeInsets.all(8.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 8.0),
                                             child: Container(
                                               child: CircleAvatar(
                                                   backgroundImage: AssetImage(
@@ -86,51 +86,61 @@ class _BinanceBodyState extends State<BinanceBody> {
                                                           ".png")),
                                             ),
                                           ),
-                                          Container(
-                                            width: 230,
-                                            alignment: Alignment.centerLeft,
-                                            child: Text(
-                                                _binanceViewModel
-                                                    .binance[index].symbol
-                                                    .toString(),
-                                                style:
-                                                    TextStyle(fontSize: 15.0)),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Expanded(
+                                            child: Container(
+                                              width: 80,
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(
+                                                  _binanceViewModel
+                                                      .binance[index].symbol
+                                                      .toString(),
+                                                  style: TextStyle(
+                                                      fontSize: 15.0)),
+                                            ),
                                           ),
                                         ],
                                       ),
                                     ),
-                                    Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          1 /
-                                          4,
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          Container(
-                                            alignment: Alignment.centerRight,
-                                            child: RichText(
-                                              text: TextSpan(
-                                                  text: "Price: ",
-                                                  style: DefaultTextStyle.of(
-                                                          context)
-                                                      .style,
-                                                  children: <TextSpan>[
-                                                    TextSpan(
-                                                      text: _binanceViewModel
-                                                          .binance[index].price
-                                                          .toString(),
-                                                      style: TextStyle(
-                                                          fontSize: 15,
-                                                          fontWeight:
-                                                              FontWeight.bold),
-                                                    ),
-                                                  ]),
+                                    Expanded(
+                                      child: Container(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                1 /
+                                                4,
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Container(
+                                              alignment: Alignment.centerRight,
+                                              child: RichText(
+                                                text: TextSpan(
+                                                    text: "Price: ",
+                                                    style: DefaultTextStyle.of(
+                                                            context)
+                                                        .style,
+                                                    children: <TextSpan>[
+                                                      TextSpan(
+                                                        text: _binanceViewModel
+                                                            .binance[index]
+                                                            .price
+                                                            .toString(),
+                                                        style: TextStyle(
+                                                            fontSize: 15,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                    ]),
+                                              ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ],

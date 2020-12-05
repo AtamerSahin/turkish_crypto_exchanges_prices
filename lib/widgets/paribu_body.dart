@@ -57,128 +57,154 @@ class _ParibuBodyState extends State<ParibuBody> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Container(
-                                      width: 190,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          SizedBox(
-                                            width: 10,
-                                          ),
-                                          CircleAvatar(
-                                              backgroundImage: AssetImage(
-                                                  "assets/${_paribuViewModel.parities[index]}.png")),
-                                          SizedBox(
-                                            width: 10,
-                                          ),
-                                          Text(
-                                              _paribuViewModel.parities[index]
-                                                  .toString(),
-                                              style: TextStyle(fontSize: 15.0)),
-                                        ],
+                                    Expanded(
+                                      child: Container(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                1 /
+                                                3,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 8.0),
+                                              child: Container(
+                                                child: CircleAvatar(
+                                                    backgroundImage: AssetImage(
+                                                        "assets/${_paribuViewModel.parities[index]}.png")),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Expanded(
+                                              child: Container(
+                                                width: 80,
+                                                child: Text(
+                                                    _paribuViewModel
+                                                        .parities[index]
+                                                        .toString(),
+                                                    style: TextStyle(
+                                                        fontSize: 15.0)),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                    Container(
-                                      width: 190,
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          RichText(
-                                            text: TextSpan(
-                                                text: "Average: ",
-                                                style:
-                                                    DefaultTextStyle.of(context)
-                                                        .style,
-                                                children: <TextSpan>[
-                                                  TextSpan(
-                                                    text: _paribuViewModel
-                                                        .paribu[index].avg24Hr
-                                                        .toString(),
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                ]),
-                                          ),
-                                          RichText(
-                                            text: TextSpan(
-                                                text: "High: ",
-                                                style:
-                                                    DefaultTextStyle.of(context)
-                                                        .style,
-                                                children: <TextSpan>[
-                                                  TextSpan(
-                                                    text: _paribuViewModel
-                                                        .paribu[index].high24Hr
-                                                        .toString(),
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                ]),
-                                          ),
-                                          RichText(
-                                            text: TextSpan(
-                                                text: "Low: ",
-                                                style:
-                                                    DefaultTextStyle.of(context)
-                                                        .style,
-                                                children: <TextSpan>[
-                                                  TextSpan(
-                                                    text: _paribuViewModel
-                                                        .paribu[index].low24Hr
-                                                        .toString(),
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                ]),
-                                          ),
-                                          RichText(
-                                            text: TextSpan(
-                                                text: "Last: ",
-                                                style:
-                                                    DefaultTextStyle.of(context)
-                                                        .style,
-                                                children: <TextSpan>[
-                                                  TextSpan(
-                                                    text: _paribuViewModel
-                                                        .paribu[index].last
-                                                        .toString(),
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                ]),
-                                          ),
-                                        ],
+                                    Expanded(
+                                      child: Container(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                2 /
+                                                3,
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            RichText(
+                                              text: TextSpan(
+                                                  text: "Average: ",
+                                                  style: DefaultTextStyle.of(
+                                                          context)
+                                                      .style,
+                                                  children: <TextSpan>[
+                                                    TextSpan(
+                                                      text: _paribuViewModel
+                                                          .paribu[index].avg24Hr
+                                                          .toString(),
+                                                      style: TextStyle(
+                                                          fontSize: 15,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ]),
+                                            ),
+                                            RichText(
+                                              text: TextSpan(
+                                                  text: "High: ",
+                                                  style: DefaultTextStyle.of(
+                                                          context)
+                                                      .style,
+                                                  children: <TextSpan>[
+                                                    TextSpan(
+                                                      text: _paribuViewModel
+                                                          .paribu[index]
+                                                          .high24Hr
+                                                          .toString(),
+                                                      style: TextStyle(
+                                                          fontSize: 15,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ]),
+                                            ),
+                                            RichText(
+                                              text: TextSpan(
+                                                  text: "Low: ",
+                                                  style: DefaultTextStyle.of(
+                                                          context)
+                                                      .style,
+                                                  children: <TextSpan>[
+                                                    TextSpan(
+                                                      text: _paribuViewModel
+                                                          .paribu[index].low24Hr
+                                                          .toString(),
+                                                      style: TextStyle(
+                                                          fontSize: 15,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ]),
+                                            ),
+                                            RichText(
+                                              text: TextSpan(
+                                                  text: "Last: ",
+                                                  style: DefaultTextStyle.of(
+                                                          context)
+                                                      .style,
+                                                  children: <TextSpan>[
+                                                    TextSpan(
+                                                      text: _paribuViewModel
+                                                          .paribu[index].last
+                                                          .toString(),
+                                                      style: TextStyle(
+                                                          fontSize: 15,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ]),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                    Container(
-                                      alignment: Alignment.centerRight,
-                                      width: 70,
-                                      child: Text(
-                                        _paribuViewModel
-                                                .paribu[index].percentChange
-                                                .toString() +
-                                            "%",
-                                        style: TextStyle(
-                                            color: double.parse(_paribuViewModel
-                                                        .paribu[index]
-                                                        .percentChange
-                                                        .toString()) <=
-                                                    0
-                                                ? Colors.red.shade400
-                                                : Colors.green.shade400,
-                                            fontSize: 18),
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(right: 8.0),
+                                      child: Container(
+                                        alignment: Alignment.centerRight,
+                                        width: 50,
+                                        child: Text(
+                                          _paribuViewModel
+                                                  .paribu[index].percentChange
+                                                  .toString() +
+                                              "%",
+                                          style: TextStyle(
+                                              color: double.parse(
+                                                          _paribuViewModel
+                                                              .paribu[index]
+                                                              .percentChange
+                                                              .toString()) <=
+                                                      0
+                                                  ? Colors.red.shade400
+                                                  : Colors.green.shade400,
+                                              fontSize: 18),
+                                        ),
                                       ),
                                     ),
                                   ],
